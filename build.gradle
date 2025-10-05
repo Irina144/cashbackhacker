@@ -15,13 +15,13 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.13.4'
+    testImplementation 'org.testng:testng:7.1.0'
 }
 
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
 test {
-    useJUnitPlatform()
+    useTestNG()
     systemProperty "file.encoding", "UTF-8"
 }
