@@ -1,39 +1,39 @@
 package ru.netology.service;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
-public class CashbackHackServiceTestNG {
+public class CashbackHackServiceJunit4Test {
 
     @Test
     public void shouldReturn100WhenAmountIs900() {
         CashbackHackService service = new CashbackHackService();
-        int actual = service.remain(900);
         int expected = 100;
-        Assert.assertEquals(actual, expected, "Должно не хватать 100 рублей");
+        int actual = service.remain(900);
+        Assert.assertEquals("900 → не хватает 100", expected, actual);
     }
 
     @Test
     public void shouldReturn0WhenAmountIsExactly1000() {
         CashbackHackService service = new CashbackHackService();
+        int expected = 0;
         int actual = service.remain(1000);
-        int expected = 0; 
-        Assert.assertEquals(actual, expected, "Если ровно 1000, должно быть 0");
+        Assert.assertEquals("1000 кратно 1000 → должно быть 0", expected, actual);
     }
 
     @Test
     public void shouldReturn999WhenAmountIs1001() {
         CashbackHackService service = new CashbackHackService();
-        int actual = service.remain(1001);
         int expected = 999;
-        Assert.assertEquals(actual, expected, "Если 1001 → 999");
+        int actual = service.remain(1001);
+        Assert.assertEquals("1001 → 999", expected, actual);
     }
 
     @Test
     public void shouldReturn0WhenAmountIs0() {
         CashbackHackService service = new CashbackHackService();
-        int actual = service.remain(0);
         int expected = 0;
-        Assert.assertEquals(actual, expected, "Если 0 → 0");
+        int actual = service.remain(0);
+        Assert.assertEquals("0 → 0", expected, actual);
     }
 }
